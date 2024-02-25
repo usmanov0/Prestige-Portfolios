@@ -21,6 +21,7 @@ public class CustomErrors {
 
 
     // Project errors
+    public static final String PROJECT_ID_ERROR = "Invalid 'id' project not found";
     public static final String PROJECT_NAME_ERROR = "'name' should be between 3-30 characters.";
     public static final String PROJECT_DESCRIPTION_ERROR = "'description' should be between 10-250 characters.";
     public static final String PROJECT_START_DATE_ERROR = "'startDate' should be in format 'MM/YYYY'.";
@@ -33,4 +34,5 @@ public class CustomErrors {
     public static final String SKILL_ALREADY_EXISTS_ERROR = "Skill already exists.";
     public static final String SKILL_SIMPLE_ICONS_ICON_SLUG_ERROR = "'simpleIconsIconSlug' should be between 0-50 characters.";
     public static final String SKILL_TYPE_ERROR = "Invalid 'type'.";
+    public static final String SKILL_NOT_FOUND_ERROR = "Skill with given 'name' not found";
 }
