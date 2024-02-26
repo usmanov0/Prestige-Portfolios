@@ -20,7 +20,7 @@ public class AboutMeController {
 
     @PutMapping(path = "/update")
     @CrossOrigin
-    public ResponseEntity<HashMap<String,Object>> setAboutMe(HttpServletRequest request, @Valid @RequestBody AboutMe aboutMe){
+    public ResponseEntity<HashMap<String,Object>> setAboutMe(@Valid @RequestBody AboutMe aboutMe){
         aboutMeService.setAboutMe(aboutMe);
         return new ResponseEntity<>(Response.createBody(), HttpStatus.OK);
     }
