@@ -35,7 +35,7 @@ public class ContactController {
         return new ResponseEntity<>(Response.createBody(keys,values), HttpStatus.OK);
     }
 
-    @DeleteMapping(path = "/delete{id}")
+    @DeleteMapping(path = "/delete/{id}")
     public ResponseEntity<HashMap<String,Object>> deleteMessage(@PathVariable ("id")Long id){
         String errMessage = contactService.deleteMessage(id);
         if (errMessage != null){

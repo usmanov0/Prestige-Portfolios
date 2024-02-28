@@ -39,7 +39,7 @@ public class BlogController {
         return new ResponseEntity<>(Response.createBody(keys,values), HttpStatus.OK);
     }
 
-    @PostMapping(path = "/like{id}")
+    @PostMapping(path = "/like/{id}")
     public ResponseEntity<HashMap<String,Object>> likeBlog(HttpServletRequest request, @PathVariable("id") Long id){
         String errorMessage = blogService.like(request,id);
         if (errorMessage != null){
@@ -48,7 +48,7 @@ public class BlogController {
         return new ResponseEntity<>(Response.createBody(), HttpStatus.OK);
     }
 
-    @PostMapping(path = "/unlike{id}")
+    @PostMapping(path = "/unlike/{id}")
     public ResponseEntity<HashMap<String,Object>> unlikeBlog(HttpServletRequest request, @PathVariable("id") Long id){
         String errorMessage = blogService.unlike(request,id);
         if (errorMessage != null){
@@ -57,7 +57,7 @@ public class BlogController {
         return new ResponseEntity<>(Response.createBody(),HttpStatus.OK);
     }
 
-    @DeleteMapping(path = "/delete{id}")
+    @DeleteMapping(path = "/delete/{id}")
     public ResponseEntity<HashMap<String,Object>> deleteBlog(@PathVariable("id") Long id){
         String errMessage = blogService.deleteBlog(id);
         if (errMessage != null){
