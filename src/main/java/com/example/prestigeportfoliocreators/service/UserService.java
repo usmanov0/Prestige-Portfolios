@@ -5,6 +5,7 @@ import com.example.prestigeportfoliocreators.repository.UserRepository;
 import com.example.prestigeportfoliocreators.util.Hash;
 import jakarta.servlet.http.HttpServletRequest;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.beans.factory.annotation.Value;
 import org.springframework.stereotype.Service;
 import java.util.Optional;
 
@@ -16,7 +17,7 @@ public class UserService {
     private static String activeProfile;
 
 
-    @SuppressWarnings("static-access")
+    @Value("${spring.profiles.active}")
     public void setActiveProfile(String activeProfile) {
         this.activeProfile = activeProfile;
     }
