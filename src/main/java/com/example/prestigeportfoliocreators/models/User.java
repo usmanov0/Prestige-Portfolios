@@ -24,23 +24,4 @@ public class User {
     @Column(name = "liked_blogs")
     @ManyToMany(mappedBy = "likedUsers", fetch = FetchType.LAZY)
     private Set<Blog> likedBlogs = new HashSet<>();
-
-    @Override
-    public boolean equals(Object o) {
-        if (this == o) {
-            return true;
-        } else if (!(o instanceof User) || this.address == null) {
-            return false;
-        }
-        User other = (User) o;
-        return this.address.equals(other.address);
-    }
-
-    @Override
-    public int hashCode() {
-        if (address == null) {
-            return 0;
-        }
-        return address.hashCode();
-    }
 }
