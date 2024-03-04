@@ -12,12 +12,6 @@ public class DateFormat {
         return date;
     }
 
-    public static String MMddyyyyhhmmss() {
-        SimpleDateFormat simpleDateFormat = new SimpleDateFormat("MM/dd/yyyy hh:mm:ss");
-        String dateTime = simpleDateFormat.format(new Date());
-        return dateTime;
-    }
-
     public static String yyyyMMddHHmmss() {
         SimpleDateFormat simpleDateFormat = new SimpleDateFormat("yyyy/MM/dd HH:mm:ss");
         String dateTime = simpleDateFormat.format(new Date());
