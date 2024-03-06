@@ -39,7 +39,7 @@ public class SkillController {
         return new ResponseEntity<>(Response.createBody("validTypes",validTypes), HttpStatus.OK);
     }
 
-    @DeleteMapping(path = "/delete{name}")
+    @DeleteMapping(path = "/delete/{name}")
     public ResponseEntity<HashMap<String,Object>> deleteSkill(@PathVariable("name") String skillName){
         String errMessage = skillService.deleteSkill(skillName);
         if (errMessage != null){
