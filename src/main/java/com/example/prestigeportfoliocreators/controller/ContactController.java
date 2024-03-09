@@ -6,20 +6,24 @@ import com.example.prestigeportfoliocreators.models.Message;
 import com.example.prestigeportfoliocreators.service.ContactService;
 import com.example.prestigeportfoliocreators.util.Response;
 import jakarta.validation.Valid;
+import org.checkerframework.checker.units.qual.A;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.domain.Page;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
-import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.HashMap;
 
-@Controller
+@RestController
 @RequestMapping(path = "/contact")
 public class ContactController {
+    private final ContactService contactService;
+
     @Autowired
-    private ContactService contactService;
+    public ContactController(ContactService contactService) {
+        this.contactService = contactService;
+    }
 
     @PostMapping(path = "/send")
     public ResponseEntity<HashMap<String,Object>> sendMessage(@RequestBody Message message){

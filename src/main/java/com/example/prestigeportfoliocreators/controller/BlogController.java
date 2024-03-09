@@ -12,16 +12,19 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.domain.Page;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
-import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.HashMap;
 
-@Controller
+@RestController
 @RequestMapping(path = "/blogs")
 public class BlogController {
+    private final BlogService blogService;
+
     @Autowired
-    private BlogService blogService;
+    public BlogController(BlogService blogService) {
+        this.blogService = blogService;
+    }
 
     @PostMapping(path = "/new")
     public ResponseEntity<HashMap<String, Object>> newBlog(@RequestBody NewBlog newBlog){

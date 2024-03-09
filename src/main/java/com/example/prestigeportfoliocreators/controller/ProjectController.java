@@ -3,20 +3,23 @@ package com.example.prestigeportfoliocreators.controller;
 import com.example.prestigeportfoliocreators.models.Projects;
 import com.example.prestigeportfoliocreators.service.ProjectService;
 import com.example.prestigeportfoliocreators.util.Response;
+import org.checkerframework.checker.units.qual.A;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
-import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.HashMap;
 import java.util.List;
 
-@Controller
+@RestController
 @RequestMapping(path = "/projects")
 public class ProjectController {
-    @Autowired
     private ProjectService projectService;
+    @Autowired
+    public ProjectController(ProjectService projectService){
+        this.projectService = projectService;
+    }
 
     @PostMapping(path = "/new")
     public ResponseEntity<HashMap<String,Object>> newProject(@RequestBody Projects projects){
